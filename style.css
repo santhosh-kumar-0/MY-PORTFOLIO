@@ -1006,3 +1006,26 @@ footer {
         font-size: 1.3rem;
     }
 }
+/* WhatsApp specific styles */
+.social-btn.whatsapp:hover {
+    background-color: #25D366;
+    color: white;
+}
+
+.social-links a.whatsapp:hover {
+    background-color: #25D366;
+}
+
+.contact-item .contact-icon.whatsapp-bg {
+    background-color: rgba(37, 211, 102, 0.1);
+    color: #25D366;
+}
+
+.contact-item:hover .contact-icon.whatsapp-bg {
+    background-color: #25D366;
+    color: white;
+}
+
+.btn i.fab.fa-whatsapp {
+    margin-right: 8px;
+}

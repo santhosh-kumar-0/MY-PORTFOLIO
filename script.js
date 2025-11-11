@@ -90,3 +90,50 @@ downloadButtons.forEach(button => {
         }, 2000); // 2-second simulation delay
     });
 });
+
+// WhatsApp Form Functionality
+const whatsappForm = document.getElementById('whatsappForm');
+const whatsappToast = document.getElementById('whatsappToast');
+
+whatsappForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // Format the message for WhatsApp
+    const whatsappMessage = `*New Message From Portfolio*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}%0A%0A`;
+    
+    // Your WhatsApp number (with country code, without +)
+    const phoneNumber = '919710209871'; // Replace with your number if different
+    
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+    
+    // Show toast notification
+    whatsappToast.classList.add('show');
+    
+    // Open WhatsApp after a short delay to show the toast
+    setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        
+        // Clear the form
+        whatsappForm.reset();
+        
+        // Hide toast after 3 seconds
+        setTimeout(() => {
+            whatsappToast.classList.remove('show');
+        }, 3000);
+    }, 1000);
+});
+
+// Direct WhatsApp contact button
+function openWhatsApp() {
+    const defaultMessage = "Hi Santhoshkumar, I visited your portfolio and would like to connect with you.";
+    const encodedMessage = encodeURIComponent(defaultMessage);
+    const whatsappUrl = `https://wa.me/919710209871?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+}
