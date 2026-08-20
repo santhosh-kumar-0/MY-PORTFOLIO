@@ -485,7 +485,8 @@ nav {
 }
 
 .skills {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     flex-wrap: wrap;
     gap: 15px;
     margin-top: 30px;
@@ -498,6 +499,18 @@ nav {
     font-size: 0.9rem;
     border: 1px solid rgba(108, 99, 255, 0.3);
     transition: var(--transition);
+}
+
+@media (max-width: 900px) {
+    .skills {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 .skill:hover {
